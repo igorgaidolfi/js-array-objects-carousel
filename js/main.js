@@ -24,25 +24,30 @@ const images = [
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 
-const content = document.getElementById('content')
+let content = document.getElementById('content')
 content.innerHTML = `<img src="./${images[0].image}" alt="">
-<div class="position-absolute bottom-50 text-right color-white padding-text">
-    <h2>${images[0].title}</h2>
-    <h5>${images[0].text}</h5>
-</div>`
-// let img = document.createElement('images')
-// const item = document.getElementById('zio')
-// img.innerHTML = 'ciccio '
-// zio.appendChild(img)
-// let i=0
-// while(i<images.length){
-//     next.addEventListener("click", function(){
-
-//     })    
-// }
-
-// for(let i=images.length; i>0;i--){
-//     prev.addEventListener("click", function(){
-//         console.log(images[i])
-//     })
-// }
+        <div class="position-absolute bottom-50 text-right color-white padding-text">
+            <h2>${images[0].title}</h2>
+            <h5>${images[0].text}</h5>
+        </div>`
+let i=1
+next.addEventListener("click", function(){
+    if(i < images.length && i>=0){  
+        content.innerHTML = `<img src="./${images[i].image}" alt="">
+        <div class="position-absolute bottom-50 text-right color-white padding-text">
+            <h2>${images[i].title}</h2>
+            <h5>${images[i].text}</h5>
+        </div>`        
+        i++
+    }
+})
+prev.addEventListener("click", function(){
+    if(i <= images.length && i>0){
+        i--
+        content.innerHTML = `<img src="./${images[i].image}" alt="">
+        <div class="position-absolute bottom-50 text-right color-white padding-text">
+            <h2>${images[i].title}</h2>
+            <h5>${images[i].text}</h5>
+        </div>`        
+    }
+})
